@@ -6,8 +6,10 @@
 	justify-content: space-around;
 	flex-direction: column;
 	border: 2px solid rgb(204, 24, 24);
+	background: rgb(255, 235, 235);
 	border-radius: 10px;
 	margin-bottom: 30px;
+	cursor: pointer;
 }
 
 .card-item__title {
