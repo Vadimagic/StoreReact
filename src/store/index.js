@@ -16,8 +16,7 @@ class Store {
 	constructor() {
 		makeObservable(this, {
 			cards: observable,
-			toggleSelectedCards: action,
-			cardById: action
+			toggleSelectedCards: action
 		})
 	}
 

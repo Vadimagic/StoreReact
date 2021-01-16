@@ -1,16 +1,12 @@
+import { computed } from 'mobx'
 import { observer } from 'mobx-react'
-import { useEffect, useState } from 'react'
 import { withRouter } from 'react-router-dom'
 import store from '../../store'
 import './CardInfo.css'
 
 const CardInfo = ({match}) => {
-	const {cards, toggleSelectedCards, cardById} = store
-	// Создаю state в котором будет храниться card, которую найдём по id
-	const [card, setCard] = useState(null)
-	useEffect(() => {
-		setCard(cardById(match.params.id))
-	}, [cards, cardById, match.params.id])
+	const {toggleSelectedCards, cardById} = store
+	const card = computed(() => cardById(match.params.id)).get()
 	return (
 		<>
 			{
@@ -25,7 +21,7 @@ const CardInfo = ({match}) => {
 						onClick={() => toggleSelectedCards(card.id)}
 					>{card.selected ? '-' : '+'}</button>
 				</div>
-				: null
+				: <p>Карточки с таким товаром не существует! :)</p>
 			}
 		</>
 	)
