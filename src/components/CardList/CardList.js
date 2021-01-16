@@ -1,12 +1,10 @@
+import { observer } from 'mobx-react'
+import store from '../../store'
 import CardItem from './CardItem/CardItem'
 import './CardList.css'
 
 const CardList = () => {
-	const cards = [
-		{id: 1, title: 'Bread', price: '35', description: 'eat', selected: false},
-		{id: 2, title: 'Milk', price: '70', description: 'eat', selected: false},
-		{id: 3, title: 'Carrot', price: '30', description: 'eat', selected: false},
-	]
+	const {cards} = store
 	return (
 		<ul className="card-list">
 			{
@@ -18,4 +16,4 @@ const CardList = () => {
 	)
 }
 
-export default CardList
+export default observer(CardList)

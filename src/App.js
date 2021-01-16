@@ -1,3 +1,4 @@
+import { observer } from "mobx-react";
 import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
 import CardList from "./components/CardList/CardList"
 
@@ -15,4 +16,4 @@ const App = () => {
 	);
 }
 
-export default App;
+export default observer(App);
