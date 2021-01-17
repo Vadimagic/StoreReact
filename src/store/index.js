@@ -13,16 +13,37 @@ class Store {
 		{id: 9, title: 'Сhicken', price: '250', description: 'Курица', selected: false},
 	]
 
+	toasts = []
+
 	constructor() {
 		makeObservable(this, {
 			cards: observable,
-			toggleSelectedCards: action
+			toasts: observable,
+			toggleSelectedCards: action,
+			createToast: action,
+			deleteToast: action
 		})
+	}
+
+	createToast = (selected, title) => {
+		const id = Date.now()
+		this.toasts.push({
+			id,
+			title: (selected ? 'Вы убрали ' : 'Вы добавили ') + title
+		})
+		setTimeout(() => {
+			this.deleteToast(id)
+		}, 5000)
+	}
+
+	deleteToast = id => {
+		this.toasts = this.toasts.filter(toast => toast.id !== id)
 	}
 
 	toggleSelectedCards = id => {
 		this.cards = this.cards.map(card => {
 			if (card.id === id) {
+				this.createToast(card.selected, card.title)
 				return {
 					...card,
 					selected: !card.selected

@@ -1,0 +1,20 @@
+.toast-container {
+	position: fixed;
+	bottom: 10%;
+	right: 5%;
+	display: flex;
+	flex-direction: column;
+}
+
+.toast {
+	padding: 10px;
+	color: rgb(201, 34, 34);
+	border: 2px solid rgb(201, 34, 34);
+	border-radius: 5px;
+	margin-bottom: 10px;
+	cursor: grab;
+}
+
+.toast:last-child {
+	margin-bottom: 0;
+}
