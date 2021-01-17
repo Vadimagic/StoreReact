@@ -1,5 +1,7 @@
 .card-info {
 	margin-top: 30px;
+	margin-right: 10px;
+	margin-left: 10px;
 	border: 2px solid rgb(204, 24, 24);
 	background: rgb(255, 235, 235);
 	border-radius: 10px;

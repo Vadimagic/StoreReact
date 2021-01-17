@@ -41,3 +41,14 @@
 	background: rgb(201, 34, 34);
 	color: #fff;
 }
+
+@media(max-width: 920px) {
+	.card-item {
+		width: 45%;
+	}
+}
+@media(max-width: 600px) {
+	.card-item {
+		width: 90%;
+	}
+}

@@ -25,7 +25,6 @@ const CardInfo = ({match}) => {
 			}
 		</>
 	)
-			
 }
 
 export default withRouter(observer(CardInfo))
