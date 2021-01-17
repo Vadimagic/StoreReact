@@ -27,13 +27,13 @@ class Store {
 
 	createToast = (selected, title) => {
 		const id = Date.now()
-		this.toasts.push({
+		this.toasts = [...this.toasts, {
 			id,
 			title: (selected ? 'Вы убрали ' : 'Вы добавили ') + title
-		})
+		}]
 		setTimeout(() => {
 			this.deleteToast(id)
-		}, 5000)
+		}, 7000)
 	}
 
 	deleteToast = id => {
