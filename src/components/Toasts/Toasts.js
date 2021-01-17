@@ -7,28 +7,27 @@ const Toasts = () => {
 	const {toasts, deleteToast} = store
 
 	const dragToast = useCallback((id) => {
-		const elmnt = document.getElementById(id)
-		let pos1 = 0, pos3 = 0
-			elmnt.onmousedown = dragMouseDown;
+		const element = document.getElementById(id)
+		let shift = 0, position = 0
+		element.onmousedown = dragMouseDown;
 		
 		function dragMouseDown(e) {
-			pos3 = e.clientX;
+			position = e.clientX;
 			document.onmouseup = closeDragElement;
 			document.onmousemove = elementDrag;
 		}
 		
 		function elementDrag(e) {
-			e = e || window.event;
-			pos1 = pos3 - e.clientX;
-			pos3 = e.clientX;
-			elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+			shift = position - e.clientX;
+			position = e.clientX;
+			element.style.left = (element.offsetLeft - shift) + "px";
 		}
 		
 		function closeDragElement() {
-			if (elmnt.offsetLeft - pos1 > 150 || elmnt.offsetLeft - pos1 < -150) {
+			if (element.offsetLeft - shift > 150 || element.offsetLeft - shift < -150) {
 				deleteToast(id)
 			} else {
-				elmnt.style.left = "0px";
+				element.style.left = "0px";
 			}
 			document.onmouseup = null;
 			document.onmousemove = null;
