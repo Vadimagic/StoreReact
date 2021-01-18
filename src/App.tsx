@@ -1,10 +1,11 @@
 import { observer } from "mobx-react";
+import { FunctionComponent } from "react";
 import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
 import CardList from "./components/CardList/CardList"
 import CardInfo from "./components/CradInfo/CardInfo";
 import Toasts from "./components/Toasts/Toasts";
 
-const App = () => {
+const App: FunctionComponent = () => {
 	return (
 		<BrowserRouter>
 			<div className="container">

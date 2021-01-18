@@ -1,8 +1,15 @@
-import { withRouter } from 'react-router-dom'
+import { FunctionComponent } from 'react'
+import { useHistory } from 'react-router-dom'
+import { ICard } from '../../../interfaces'
 import store from '../../../store'
 import './CardItem.css'
 
-const CardItem = ({history, card}) => {
+type CardItemProps = {
+	card: ICard
+}
+
+const CardItem : FunctionComponent<CardItemProps> = ({card}) => {
+	const history = useHistory()
 	const { toggleSelectedCards } = store
 	return (
 		<li className="card-item" onClick={() => history.push(`/card/${card.id}`)}>
@@ -20,4 +27,4 @@ const CardItem = ({history, card}) => {
 	)
 }
 
-export default withRouter(CardItem)
+export default CardItem
