@@ -1,10 +1,15 @@
 import { computed } from 'mobx'
 import { observer } from 'mobx-react'
-import { withRouter } from 'react-router-dom'
+import { useRouteMatch } from 'react-router-dom'
 import store from '../../store'
 import './CardInfo.css'
 
-const CardInfo = ({match}) => {
+interface MatchParams {
+	id: string;
+}
+
+const CardInfo = () => {
+	const match = useRouteMatch<MatchParams>()
 	const {toggleSelectedCards, cardById} = store
 	const card = computed(() => cardById(match.params.id)).get()
 	return (
@@ -27,4 +32,4 @@ const CardInfo = ({match}) => {
 	)
 }
 
-export default withRouter(observer(CardInfo))
+export default observer(CardInfo)
