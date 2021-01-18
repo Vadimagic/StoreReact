@@ -2,7 +2,7 @@ import { computed } from 'mobx'
 import { observer } from 'mobx-react'
 import { FunctionComponent } from 'react'
 import { useRouteMatch } from 'react-router-dom'
-import store from '../../store'
+import store from '../../store/index'
 import './CardInfo.css'
 
 interface MatchParams {

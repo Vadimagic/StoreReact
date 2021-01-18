@@ -1,6 +1,6 @@
 import { observer } from 'mobx-react'
 import { FunctionComponent, useCallback, useEffect } from 'react'
-import store from '../../store'
+import store from '../../store/'
 import './Toasts.css'
 
 const Toasts : FunctionComponent = () => {
